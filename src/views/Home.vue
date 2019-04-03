@@ -9,7 +9,7 @@
     </form>
     <p v-if="loading">Loading...</p>
     <ul v-else>
-      <li v-for="image in images" :key="image.id">{{image}}</li>
+      <image-card v-for="image in images" :key="image.id" :image="image"/>
     </ul>
   </div>
 </template>
@@ -18,6 +18,7 @@
 // @ is an alias to /src
 import config from "../../config.js";
 import axios from "axios";
+import ImageCard from "@/components/ImageCard";
 
 export default {
   name: "home",
@@ -52,6 +53,9 @@ export default {
         }
       });
     }
+  },
+  components: {
+    ImageCard
   }
 };
 </script>
